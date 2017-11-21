@@ -17,9 +17,11 @@ import nyc.c4q.bookrecyclerview.view.BookViewHolder;
 
 public class BookAdapter extends RecyclerView.Adapter<BookViewHolder> {
     private List<Book> bookList;
-    public BookAdapter(List<Book> bookList){
+
+    public BookAdapter(List<Book> bookList) {
         this.bookList = bookList;
     }
+
     @Override
     public BookViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View childView = LayoutInflater.from(parent.getContext()).inflate(R.layout.book_itemview, parent, false);
@@ -28,10 +30,16 @@ public class BookAdapter extends RecyclerView.Adapter<BookViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(BookViewHolder holder, int position) {
+    public void onBindViewHolder(final BookViewHolder holder, int position) {
         Book book = bookList.get(position);
         holder.onBind(book);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                holder.toggleLayout();
+            }
+        });
 
     }
 

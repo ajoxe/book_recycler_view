@@ -9,12 +9,16 @@ public class Book {
     private String bookAuthor;
     private String publishingYear;
     private int bookCover;
+    private String description;
+
+
 
     public Book(int bookCover, String title, String author, String publishingYear) {
         this.bookCover = bookCover;
         this.bookTitle = title;
         this.bookAuthor = author;
         this.publishingYear = publishingYear;
+        this.description = description;
 
     }
 
@@ -32,5 +36,8 @@ public class Book {
 
     public String getPublishingYear() {
         return publishingYear;
+    }
+    public String getDescription() {
+        return description;
     }
 }
